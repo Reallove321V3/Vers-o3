@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cassino Real 🎰</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container" id="login">
+  <h2>🎰 Cassino Real 🎰</h2>
+  <p>Digite seu nome e telefone:</p>
+  <input type="text" id="nomeUsuario" placeholder="Seu nome" />
+  <input type="text" id="telefoneUsuario" placeholder="Seu número (ex: 92999999999)" />
+  <button class="button" onclick="entrar()">Entrar</button>
+</div>
+
+<div class="container hidden" id="principal">
+  <h2>🎰 Cassino Real 🎰</h2>
+  <p id="dadosUsuario"></p>
+  <p id="saldoFree">Saldo Free: R$35,00</p>
+
+  <div class="balance-box">
+    <strong>Saldo VIP:</strong><br/>
+    <button class="vip-button" onclick="pedirRecarga()">R$1300,00 (bloqueado)</button>
+  </div>
+
+  <div>
+    <button class="button" onclick="jogoPerguntas()">🎮 Jogo de Perguntas</button>
+    <a href="recarga.html" class="button">💰 Recarregar</a>
+    <button class="button highlight" onclick="mostrarFormulario()">💸 Sacar R$30,00</button>
+    <button class="button" onclick="convidar()">👥 Convidar Amigos</button>
+  </div>
+
+  <div class="balance-box hidden" id="formularioSaque">
+    <h3 id="tituloSaque">Solicitação de Saque</h3>
+    <input type="text" placeholder="Chave Pix" /><br/>
+    <p>Faça uma recarga de R$5 ou R$10. Caso não tenha, digite o código de quem lhe indicou para liberar o saque:</p>
+    <input type="text" placeholder="Digite o código de indicação aqui" /><br/>
+
+    <p>Ou digite o código de saque:</p>
+    <input type="text" id="codigoSaque" placeholder="Exemplo: 1243" /><br/>
+    <button class="button" onclick="validarCodigo()">Confirmar</button>
+  </div>
+
+  <div class="balance-box">
+    <p><strong>Histórico de Movimentações:</strong></p>
+    <p>• Nova Indicação (simulado): +R$5</p>
+  </div>
+</div>
+
+<script src="scripts.js"></script>
+<script>
+  function validarCodigo() {
+    const codigo = document.getElementById('codigoSaque').value;
+    if (codigo === '1243') {
+      alert('✅ Código de saque válido! Liberando...');
+      enviarSaque();
+    } else {
+      alert('❌ Código inválido. Verifique e tente novamente.');
+    }
+  }
+</script>
+</body>
+</html>
